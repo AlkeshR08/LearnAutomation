@@ -1,0 +1,9 @@
+@Given("^I have the following books in the store by list$")
+public void haveBooksInTheStoreByList(DataTable table) {
+    
+    List<List<String>> rows = table.asLists(String.class);
+    
+    for (List<String> columns : rows) {
+        store.addBook(new Book(columns.get(0), columns.get(1)));
+    }
+}
